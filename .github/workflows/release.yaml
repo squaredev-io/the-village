@@ -13,7 +13,7 @@ jobs:
   publish-api:
     uses: squaredev-io/gh-workflows/.github/workflows/base_build_publish.yml@v1
     with:
-      runs-on: self-hosted
+      runs-on: arc-runner-set
       image: the-village
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
