@@ -1,0 +1,20 @@
+# This is a basic workflow to help you get started with Actions
+name: Release
+
+# Controls when the workflow will run
+on:
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  publish-api:
+    uses: squaredev-io/gh-workflows/.github/workflows/base_build_publish.yml@v1
+    with:
+      runs-on: arc-runner-set
+      image: the-village
+    secrets:
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_access_token: ${{ secrets.DOCKER_ACCESS_TOKEN }}
